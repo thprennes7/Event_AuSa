@@ -13,11 +13,11 @@ User.destroy_all
 require 'faker'
 
 10.times do
-  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.paragraph)
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.paragraph, email: Faker::Internet.email)
 end
 
 5.times do
-  Event.create!(start_date: Faker::Date.forward(30), duration: 60, title: Faker::HarryPotter.location, description: Faker::Lorem.paragraph_by_chars(256, false), price: rand(1..90), location: Faker::Address.city)
+  Event.create!(start_date: Faker::Date.forward(30), duration: 60, title: Faker::HarryPotter.location, description: Faker::Lorem.paragraph_by_chars(256, false), price: rand(1..90), location: Faker::Address.city, user_id: User.all.sample.id)
 end
 
 10.times do
