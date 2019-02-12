@@ -1,11 +1,11 @@
 class Attendance < ApplicationRecord
+  after_create :join_event_email_send
+
   belongs_to :user
   belongs_to :event
 
 
-  after_create :send_participation
-
-  def send_participation
-    AttendanceMailer.join_email(self).deliver_now
+  def join_event_email_send
+    AttendanceMailer.join_event_email(self).deliver_now
   end
 end

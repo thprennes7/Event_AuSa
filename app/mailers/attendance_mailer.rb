@@ -2,7 +2,7 @@ class AttendanceMailer < ApplicationMailer
 
   default from: 'no-reply@monsite.fr'
 
-  def join_email(attendance)
+  def join_event_email(attendance)
     @attendance = attendance
 
     @url  = 'http://monsite.fr/login'
