@@ -21,6 +21,6 @@ puts "user créer"
 end
 puts "event créer"
 10.times do
-  Attendance.create!(stripe_customer_id: Faker::Cannabis.cannabinoid, event_id: Event.all.sample.id, user_id: User.all.sample.id )
+  Attendance.create!( event_id: Event.all.sample.id, user_id: User.all.sample.id, stripe_customer_id: rand(1..100))
 end
 puts "attendance créer"
