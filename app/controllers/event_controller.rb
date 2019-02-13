@@ -4,6 +4,7 @@ class EventController < ApplicationController
   end
 
   def new
+    @event = Event.new
   end
 
   def show
@@ -11,6 +12,9 @@ class EventController < ApplicationController
 
   def create
     @event = Event.new(start_date: params[:start_date], description: params[:description], title: params[:title], price: [:price], location: [:location])
+    puts "$"*60
+    puts params
+    puts "$" * 60
     if @event.save
       redirect_to root_path
     else
