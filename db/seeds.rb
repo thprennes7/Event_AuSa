@@ -13,7 +13,7 @@ User.destroy_all
 require 'faker'
 
 10.times do
-  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.paragraph, email: "ausathp@yopmail.com", password: "azerty")
+  User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.paragraph, email: Faker::Internet.email, password: "azerty")
 end
 puts "user créer"
 5.times do
