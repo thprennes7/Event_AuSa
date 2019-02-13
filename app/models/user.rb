@@ -1,11 +1,10 @@
 class User < ApplicationRecord
-<<<<<<< HEAD
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-=======
+
   after_create :welcome_send
->>>>>>> a3a5651c9ed4288c0cb6ff0206908133a3c6cff1
+
   has_many :attendances
   has_many :events, through: :attendances
   has_many :events, foreign_key: 'admin_id', class_name: 'Event'

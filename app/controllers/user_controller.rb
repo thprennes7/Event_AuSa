@@ -7,7 +7,7 @@ class UserController < ApplicationController
   end
 
   def show
-  
+    @user = current_user.id
   end
 
   def destroy
