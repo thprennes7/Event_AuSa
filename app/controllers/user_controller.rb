@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   before_action :verify_user, only: [:show]
 

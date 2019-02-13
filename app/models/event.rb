@@ -3,8 +3,8 @@ class Event < ApplicationRecord
   has_many :attendances
   has_many :users, through: :attendances
 
-  validates :start_date,
-  presence: true, if: :start_date_past
+  #validates :start_date,
+  #presence: false, if: :start_date_past
   validates :duration,
   presence: true,
   numericality: { greater_than_or_equal_to: 1 }

@@ -1,5 +1,5 @@
-class EventController < ApplicationController
-
+class EventsController < ApplicationController
+before_action :authenticate_user!, only: [:create]
   def index
   end
 
@@ -12,7 +12,7 @@ class EventController < ApplicationController
   end
 
   def create
-    @event = Event.new(start_date: params[:start_date], description: params[:description], title: params[:title], price: [:price], location: [:location])
+    @event = Event.new(description: params[:description], title: params[:title], price: [:price], location: [:location])
     puts "$"*60
     puts params
     puts "$" * 60
