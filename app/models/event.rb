@@ -23,4 +23,5 @@ class Event < ApplicationRecord
             errors.add(:start_date, "Tu as à choisi une date dans le passé, ahah !")
     end
 end
+
 end
