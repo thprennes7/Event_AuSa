@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
-
-before_action :authenticate_user!, only: [:create, :new]
+before_action :authenticate_user!, only: [:create, :new, :show]
 
   def index
   end
@@ -14,14 +13,14 @@ before_action :authenticate_user!, only: [:create, :new]
   end
 
   def create
-    @event = Event.new(description: params[:description], title: params[:title], price: [:price], location: [:location])
+    event = Event.new(description: params[:description], title: params[:title], location: [:location], admin_id: params[:id])
     puts "$"*60
     puts params
     puts "$" * 60
-    if @event.save
+    if event.save
       redirect_to root_path
     else
-      redirect_to root_path
+      redirect_to new_event_path
     end
   end
 end
